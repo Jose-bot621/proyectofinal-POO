@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="raiz" styleClass="tienda-root" stylesheets="@../css/estilo-tienda.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.TiendaController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="14.0" styleClass="tienda-header">
+         <children>
+            <Label styleClass="tienda-logo" text="👗 Moda Store" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="header-label" text="Categoría" />
+            <ComboBox fx:id="cbxCategoria" prefWidth="200.0" />
+            <TextField fx:id="txtBuscar" prefWidth="240.0" promptText="🔍 Buscar prenda..." />
+            <Button onAction="#volverARoles" styleClass="btn-volver" text="⬅ Cambiar de rol" />
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="18.0" right="18.0" top="12.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true" styleClass="scroll-catalogo" BorderPane.alignment="CENTER">
+         <content>
+            <FlowPane fx:id="flowProductos" hgap="18.0" styleClass="flow-catalogo" vgap="18.0">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </center>
+   <right>
+      <VBox prefWidth="370.0" spacing="10.0" styleClass="panel-carrito" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="panel-titulo" text="🛒 Mi carrito" />
+            <ListView fx:id="lvCarrito" VBox.vgrow="ALWAYS" />
+            <HBox spacing="8.0">
+               <children>
+                  <Button onAction="#quitarSeleccionado" styleClass="btn-quitar" text="🗑 Quitar" />
+                  <Button onAction="#vaciarCarrito" styleClass="btn-vaciar" text="Vaciar carrito" />
+               </children>
+            </HBox>
+            <Label fx:id="lblTotal" styleClass="total-label" text="Total: S/ 0.00" />
+            <Label styleClass="panel-subtitulo" text="Datos para tu boleta" />
+            <TextField fx:id="txtDni" promptText="DNI (8 dígitos)" />
+            <TextField fx:id="txtNombre" promptText="Nombres y apellidos" />
+            <Button fx:id="btnComprar" maxWidth="1.7976931348623157E308" onAction="#confirmarCompra" styleClass="btn-comprar" text="✅ CONFIRMAR COMPRA" />
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
